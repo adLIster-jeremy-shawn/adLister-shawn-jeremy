@@ -14,5 +14,27 @@
         <h1>Welcome, <c:out value="${sessionScope.user.username}"/>!</h1>
     </div>
 
+    <div class="container w-90">
+        <h1 class="mb-5">Here are your ads!</h1>
+        <div class="row row-cols-4">
+
+<%--            <c:choose>--%>
+<%--            <c:when test="${sessionScope.user.id eq ad.adUser_id}">--%>
+            <c:forEach var="ad" items="${ads}">
+                <c:choose>
+                    <c:when test="${sessionScope.user.id eq ad.adUser_id}">
+                        <div class="col mb-3">
+                            <h2 class="mb-1">${ad.title}</h2>
+                            <p>${ad.description}</p>
+                        </div>
+                    </c:when>
+                </c:choose>
+            </c:forEach>
+<%--                    <c:otherwise>--%>
+<%--                        <h2>No ads yet.</h2>--%>
+<%--                    </c:otherwise>--%>
+        </div>
+    </div>
+
 </body>
 </html>
