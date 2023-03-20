@@ -21,9 +21,13 @@
                 <input id="password" name="password" class="form-control" type="password">
             </div>
             <input type="submit" class="btn btn-primary btn-block w-100 mb-3" value="Log In">
-            <button class="btn btn-primary btn-block w-100" href="../register">
+<%--            <input type="submit" class="btn btn-primary btn-block w-100 mb-3" href="/WEB-INF/register" value="Register"/>--%>
+
+                <a class="btn btn-primary btn-block w-100" href="/register">
+<%--            <button class="btn btn-primary btn-block w-100">--%>
                 Register
-            </button>
+<%--            </button>--%>
+                </a>
         </form>
     </div>
 </body>
