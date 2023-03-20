@@ -14,9 +14,10 @@ import java.io.IOException;
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        String url = request.getSession().getAttribute();
 
         if (request.getSession().getAttribute("user") == null) {
-            response.sendRedirect("/register");
+            response.sendRedirect("/login");
             return;
         }
 
@@ -31,12 +32,10 @@ public class CreateAdServlet extends HttpServlet {
         }
 
         Ad ad = new Ad(
-//                12,
             user.getId(),
             request.getParameter("title"),
             request.getParameter("description")
         );
-//            ad.setadUser_id(user.getId());
         DaoFactory.getAdsDao().insert(ad);
         response.sendRedirect("/ads");
         }
