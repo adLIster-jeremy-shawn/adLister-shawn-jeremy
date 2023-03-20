@@ -1,5 +1,7 @@
 package com.codeup.adlister.controllers;
 
+import com.codeup.adlister.dao.Cat;
+import com.codeup.adlister.dao.CatDao;
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
@@ -34,7 +37,8 @@ public class CreateAdServlet extends HttpServlet {
 //                12,
             user.getId(),
             request.getParameter("title"),
-            request.getParameter("description")
+            request.getParameter("description"),
+            request.getParameter("cats")
         );
 //            ad.setadUser_id(user.getId());
         DaoFactory.getAdsDao().insert(ad);
