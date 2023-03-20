@@ -11,6 +11,7 @@
                     <ul class="nav block-inline navbar-right">
                         <li class="me-3"><a href="/ads">Ads</a></li>
                         <li class="me-3"><a href="/ads/create">Create Ad</a></li>
+                        <li class="me-3"><a href="/profile">profile</a></li>
                         <li><a href="/logout">Logout</a></li>
                     </ul>
                 </div>

@@ -32,6 +32,9 @@
                         <div class="col mb-3">
                             <h2 class="mb-1">${ad.title}</h2>
                             <p>${ad.description}</p>
+                            <form action="delete-ad" method="DELETE">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                         </div>
                     </c:when>
                 </c:choose>
