@@ -18,7 +18,6 @@ public class CreateAdServlet extends HttpServlet {
         if (request.getSession().getAttribute("user") == null) {
             request.getSession().setAttribute("firstURL", request.getServletPath());
             response.sendRedirect("/login");
-
             return;
         }
 

@@ -9,7 +9,7 @@
                     <a class="navbar-brand" href="/ads">Adlister</a>
                 </div>
                 <ul class="nav block-inline navbar-right">
-                    <li class="me-3"><a href="/login">Login</a></li>
+                    <li class="me-3"><a href="/profile">My Ads</a></li>
                     <li class="me-3"><a href="/ads">Ads</a></li>
                     <li class="me-3"><a href="/ads/create">Create Ad</a></li>
                     <li><a href="/logout">Logout</a></li>

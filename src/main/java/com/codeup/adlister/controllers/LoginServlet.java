@@ -22,7 +22,8 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         if (request.getSession().getAttribute("user") != null) {
-            response.sendRedirect("/profile");
+            request.getSession().setAttribute("firstURL", request.getServletPath());
+            response.sendRedirect("/login");
             return;
         }
 
@@ -31,6 +32,9 @@ public class LoginServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String firstURL = (String) request.getSession().getAttribute("firstURL");
+        if (firstURL == null) {
+            firstURL = "/login";
+        }
         System.out.println(firstURL);
 
         String username = request.getParameter("username");
@@ -44,10 +48,9 @@ public class LoginServlet extends HttpServlet {
 
         boolean validAttempt = BCrypt.checkpw(password, user.getPassword());
 
+        request.getSession().setAttribute("user", user);
         if (validAttempt) {
-            request.getSession().setAttribute("user", user);
             response.sendRedirect(firstURL);
-//            response.sendRedirect("/profile");
         } else {
             response.sendRedirect("/login");
         }
