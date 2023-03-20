@@ -1,32 +1,23 @@
 package com.codeup.adlister.models;
 
-import com.codeup.adlister.dao.Cat;
-
-import java.util.ArrayList;
-
 public class Ad {
     private long id;
     private long adUser_id;
     private String title;
-
     private String description;
-    private ArrayList<Cat> cats;
 
-    public Ad(long id, long adUser_id, String title, String description, ArrayList cats) {
+    public Ad(long id, long adUser_id, String title, String description) {
         this.id = id;
         this.adUser_id = adUser_id;
         this.title = title;
         this.description = description;
-        this.cats = cats;
     }
 
-    public Ad(long adUser_id, String title, String description, ArrayList cats) {
+    public Ad(long adUser_id, String title, String description) {
         this.adUser_id = adUser_id;
         this.title = title;
         this.description = description;
-        this.cats = cats;
     }
-
 
     public long getId() {
         return id;
@@ -58,13 +49,5 @@ public class Ad {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public ArrayList getCats() {
-        return cats;
-    }
-
-    public void setCats(ArrayList cats) {
-        this.cats = cats;
     }
 }
