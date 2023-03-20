@@ -15,11 +15,18 @@
     </div>
 
     <div class="container w-90">
-        <h1 class="mb-5">Here are your ads!</h1>
-        <div class="row row-cols-4">
+<%--        <h1 class="mb-5">Here are your ads!</h1>--%>
+    <c:choose>
+        <c:when test="${sessionScope.user.id eq ad.adUser_id}">
+            <h1 class="mb-5">Here are your ads!</h1>
+        </c:when>
+        <c:otherwise>
+            <p>none of the above tests were true</p>
+        </c:otherwise>
+    </c:choose>
 
-<%--            <c:choose>--%>
-<%--            <c:when test="${sessionScope.user.id eq ad.adUser_id}">--%>
+    <div class="row row-cols-4">
+
             <c:forEach var="ad" items="${ads}">
                 <c:choose>
                     <c:when test="${sessionScope.user.id eq ad.adUser_id}">
