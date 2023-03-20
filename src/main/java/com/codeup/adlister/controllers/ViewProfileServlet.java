@@ -14,6 +14,7 @@ public class ViewProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("ads", DaoFactory.getAdsDao().all());
         if (request.getSession().getAttribute("user") == null) {
+            request.getSession().setAttribute("firstURL", request.getServletPath());
             response.sendRedirect("/login");
             return;
         }

@@ -30,11 +30,12 @@ public class LoginServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String firstURL = (String) request.getSession().getAttribute("firstURL");
+        System.out.println(firstURL);
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User user = DaoFactory.getUsersDao().findByUsername(username);
-
 
         if (user == null) {
             response.sendRedirect("/login");
@@ -42,28 +43,13 @@ public class LoginServlet extends HttpServlet {
         }
 
         boolean validAttempt = BCrypt.checkpw(password, user.getPassword());
-//        boolean validAttempt = Password.check(password, user.getPassword());
 
         if (validAttempt) {
             request.getSession().setAttribute("user", user);
-            response.sendRedirect("/profile");
-            return;
+            response.sendRedirect(firstURL);
+//            response.sendRedirect("/profile");
         } else {
             response.sendRedirect("/login");
         }
     }
-//    private Connection connection = null;
-//
-//    public void MySQLDao(Config config) {
-//        try {
-//            DriverManager.registerDriver(new Driver());
-//            connection = DriverManager.getConnection(
-//                    config.getUrl(),
-//                    config.getUser(),
-//                    config.getPassword()
-//            );
-//        } catch (SQLException e) {
-//            throw new RuntimeException("Error connecting to the database!", e);
-//        }
-//    }
 }
