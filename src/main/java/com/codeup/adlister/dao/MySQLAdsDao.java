@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MySQLAdsDao implements Ads {
-private Connection connection = null;
+    private Connection connection = null;
 
     public MySQLAdsDao(Config config) {
         try {
@@ -56,10 +56,10 @@ private Connection connection = null;
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
-            rs.getLong("id"),
-            rs.getLong("adUser_id"),
-            rs.getString("title"),
-            rs.getString("description")
+                rs.getLong("id"),
+                rs.getLong("adUser_id"),
+                rs.getString("title"),
+                rs.getString("description")
         );
     }
 
