@@ -14,10 +14,11 @@ import java.io.IOException;
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        String url = request.getSession().getAttribute();
 
         if (request.getSession().getAttribute("user") == null) {
+            request.getSession().setAttribute("firstURL", request.getServletPath());
             response.sendRedirect("/login");
+
             return;
         }
 

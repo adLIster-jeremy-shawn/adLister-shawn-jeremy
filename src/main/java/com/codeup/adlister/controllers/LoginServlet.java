@@ -30,11 +30,9 @@ public class LoginServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String firstURL = (String) request.getSession().getAttribute("firstURL");
+        System.out.println(firstURL);
 
-//        String referer = request.getHeader("Referer");
-//        request.getSession().setAttribute("firstURL", request.getRequestURL());
-//        String firstURL = request.getParameter("firstURL");
-//
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User user = DaoFactory.getUsersDao().findByUsername(username);
@@ -48,8 +46,8 @@ public class LoginServlet extends HttpServlet {
 
         if (validAttempt) {
             request.getSession().setAttribute("user", user);
-//            response.sendRedirect(referer);
-            response.sendRedirect("/profile");
+            response.sendRedirect(firstURL);
+//            response.sendRedirect("/profile");
         } else {
             response.sendRedirect("/login");
         }
