@@ -25,12 +25,14 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect("/profile");
             return;
         }
-
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String firstURL = (String) request.getSession().getAttribute("firstURL");
+        if (firstURL == null) {
+            firstURL = "/profile";
+        }
         System.out.println(firstURL);
 
         String username = request.getParameter("username");
@@ -50,7 +52,7 @@ public class LoginServlet extends HttpServlet {
             //pick up work here
 //            response.sendRedirect("/profile");
         } else {
-            response.sendRedirect("/login");
+            response.sendRedirect(firstURL);
         }
     }
     //comment
