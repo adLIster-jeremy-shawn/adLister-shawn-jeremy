@@ -12,22 +12,19 @@
         <form action="/register" method="POST">
             <div class="form-group pb-3">
                 <label for="username">Username</label>
-                <input id="username" name="username" class="form-control" type="text">
+                <input id="username" name="username" class="form-control" type="text" required>
             </div>
             <div class="form-group pb-3">
                 <label for="email">E-mail</label>
-                <input id="email" name="email" class="form-control" type="text">
+                <input id="email" name="email" class="form-control" type="email" required>
             </div>
             <div class="form-group pb-3">
                 <label for="password">Password</label>
-                <input id="password" name="password" class="form-control" type="password">
+                <input id="password" name="password" class="form-control" type="password" required>
             </div>
-<%--            <div class="form-group pb-3">--%>
-<%--                <label for="confirm_password">Confirm password</label>--%>
-<%--                <input id="confirm_password" name="confirm_password" class="form-control" type="password">--%>
-<%--            </div>--%>
             <input type="submit" class="btn btn-primary btn-block w-100" value="Register">
         </form>
     </div>
+<%--    <script src="/JS/script.js"></script>--%>
 </body>
 </html>

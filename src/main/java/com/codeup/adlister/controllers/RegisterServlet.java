@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static com.codeup.adlister.test.PasswordTest.is_Valid_Password;
+
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,14 +28,21 @@ public class RegisterServlet extends HttpServlet {
 
         boolean inputHasErrors = username.isEmpty()
                 || email.isEmpty()
-                || password.isEmpty();
+                || password.isEmpty()
+                ;
 
         if (inputHasErrors) {
             response.sendRedirect("/register");
             return;
         }
-        User user = new User(username, email, password);
-        DaoFactory.getUsersDao().insert(user);
-        response.sendRedirect("/login");
+
+        if (is_Valid_Password(password)) {
+            User user = new User(username, email, password);
+            DaoFactory.getUsersDao().insert(user);
+            response.sendRedirect("/login");
+        } else {
+            response.sendRedirect("/register");
+            return;
+        }
     }
 }
