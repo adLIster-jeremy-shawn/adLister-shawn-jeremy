@@ -44,9 +44,6 @@ public class CreateAdServlet extends HttpServlet {
 
         if (ad.getTitle() == "" || ad.getDescription() == "") {
             response.sendRedirect(firstURL);
-
-//            response.sendRedirect("/ads/create");
-//            return;
         } else {
             DaoFactory.getAdsDao().insert(ad);
             response.sendRedirect("/profile");

@@ -11,18 +11,14 @@
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container w-25">
         <h1>Log In</h1>
-        <form action="/login" method="POST" class="needs-validation" novalidate>
+        <form action="/login" method="POST">
             <div class="form-group pb-3">
                 <label for="username" class="form-label">Username</label>
                 <input id="username" name="username" class="form-control" type="text" required>
-<%--                placeholder="enter username here"--%>
-                <div class="valid-feedback">
-                    Username is valid.
-                </div>
             </div>
             <div class="form-group pb-3">
                 <label for="password">Password</label>
-                <input id="password" name="password" class="form-control" type="password">
+                <input id="password" name="password" class="form-control" type="password" required>
             </div>
             <input type="submit" class="btn btn-primary btn-block w-100 mb-3" value="Log In">
 <%--            <input type="submit" class="btn btn-primary btn-block w-100 mb-3" href="/WEB-INF/register" value="Register"/>--%>
