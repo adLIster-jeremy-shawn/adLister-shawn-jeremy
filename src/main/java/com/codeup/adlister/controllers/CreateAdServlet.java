@@ -24,14 +24,14 @@ public class CreateAdServlet extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         User user = (User) request.getSession().getAttribute("user");
         if (user == null){
             response.sendRedirect("/login");
             return;
         }
         if (DaoFactory.getAdsDao() != null) {
-            request.setAttribute("adderrorMessage", "enter add.");
+            request.setAttribute("adderrorMessage", "enter valid add.");
             try {
                 request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
             } catch (ServletException e) {
@@ -39,6 +39,7 @@ public class CreateAdServlet extends HttpServlet {
             }
             return;
         }
+        request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
 
         Ad ad = new Ad(
 //                12,

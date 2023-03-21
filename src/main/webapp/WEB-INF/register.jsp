@@ -18,21 +18,24 @@
         <div class="alert alert-Primary">Create new user</div>
     </c:otherwise>
     </c:choose>
-    <form action="/register" method="POST">
+    <form>
+    </form>    <form action="/register" method="POST">
         <div class="form-group pb-3">
             <label for="username">Username</label>
-            <input id="username" name="username" class="form-control" type="text">
+            <input id="username" name="username" class="form-control" type="text" required>
         </div>
         <div class="form-group pb-3">
             <label for="email">E-mail</label>
-            <input id="email" name="email" class="form-control" type="text">
+            <input type="email" id="email" name="email" class="form-control"  required>
         </div>
         <div class="form-group pb-3">
             <label for="password">Password</label>
-            <input id="password" name="password" class="form-control" type="password">
+            <input id="password" name="password" class="form-control" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
         </div>
         <input type="submit" class="btn btn-primary btn-block w-100" value="Register">
-    </form>
+    </form><script>
+
+</script>
 </div>
 </body>
 </html>

@@ -5,26 +5,30 @@
         <jsp:param name="title" value="Create a new Ad" />
     </jsp:include>
 </head>
+
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container w-25">
-        <c:choose>
-            <c:when test="${empty adderrorMessage}">
-                <div class="alert alert-danger">${adderrorMessage}</div>
-            </c:when>
-            <c:otherwise>
-                <div class="alert alert-Primary">Create add</div>
-            </c:otherwise>
-        </c:choose>
+<%--        <c:choose>--%>
+<%--            <c:when test="${not empty adderrorMessage}">--%>
+<%--                <div class="alert alert-danger">${adderrorMessage}</div>--%>
+<%--            </c:when>--%>
+<%--            <c:otherwise>--%>
+<%--                <div class="alert alert-Primary">Create add</div>--%>
+<%--            </c:otherwise>--%>
+<%--        </c:choose>--%>
+
         <h1>Create a new Ad</h1>
         <form action="/ads/create" method="post">
             <div class="form-group pb-3">
                 <label for="title">Title</label>
-                <input id="title" name="title" class="form-control" type="text">
+
+                <input id="title" name="title" class="form-control" type="text" required>
+
             </div>
-            <div class="form-group pb-3">
+            <div class="form-group pb-3" >
                 <label for="description">Description</label>
-                <textarea id="description" name="description" class="form-control" type="text"></textarea>
+                <textarea id="description" name="description" class="form-control" type="text" required></textarea>
             </div>
             <input type="submit" class="btn btn-block btn-primary">
         </form>
