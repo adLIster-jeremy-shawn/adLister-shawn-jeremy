@@ -22,8 +22,7 @@ public class RegisterServlet extends HttpServlet {
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-//        String hash = BCrypt.hashpw(password, BCrypt.gensalt());
-//        password = hash;
+
 
         boolean inputHasErrors = username.isEmpty()
                 || email.isEmpty()
