@@ -38,6 +38,5 @@
             </c:forEach>
         </div>
     </div>
-
 </body>
 </html>

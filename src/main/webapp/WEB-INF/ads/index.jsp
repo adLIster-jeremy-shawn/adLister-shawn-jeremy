@@ -8,7 +8,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-<input type="text" id="search-bar" placeholder="Search ads...">
+<input class="mx-3" type="text" id="search-bar" placeholder="Search ads...">
 <script>
     const searchBar = document.getElementById('search-bar');
     searchBar.addEventListener('input', (event) => {

@@ -13,7 +13,7 @@
         <h1>Log In</h1>
         <form action="/login" method="POST">
             <div class="form-group pb-3">
-                <label for="username" class="form-label">Username</label>
+                <label for="username">Username</label>
                 <input id="username" name="username" class="form-control" type="text" required>
             </div>
             <div class="form-group pb-3">
@@ -30,6 +30,5 @@
                 </a>
         </form>
     </div>
-    <script src="../JS/script.js"></script>
 </body>
 </html>

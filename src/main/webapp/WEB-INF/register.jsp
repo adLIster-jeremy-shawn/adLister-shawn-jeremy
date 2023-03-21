@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -9,6 +10,14 @@
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container w-25">
         <h1>Register</h1>
+        <c:choose>
+            <c:when test="${not empty errorMessage}">
+                <div class="alert alert-danger">${errorMessage}</div>
+            </c:when>
+            <c:otherwise>
+                <div class="alert alert-Primary">Create new user</div>
+            </c:otherwise>
+        </c:choose>
         <form action="/register" method="POST">
             <div class="form-group pb-3">
                 <label for="username">Username</label>
@@ -25,6 +34,5 @@
             <input type="submit" class="btn btn-primary btn-block w-100" value="Register">
         </form>
     </div>
-<%--    <script src="/JS/script.js"></script>--%>
 </body>
 </html>

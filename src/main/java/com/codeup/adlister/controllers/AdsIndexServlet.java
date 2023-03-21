@@ -14,11 +14,19 @@ public class AdsIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         if (request.getSession().getAttribute("user") == null) {
-            request.getSession().setAttribute("firstURL", request.getServletPath());
-            response.sendRedirect("/login");
+            response.sendRedirect("/register");
             return;
         }
         request.setAttribute("ads", DaoFactory.getAdsDao().all());
         request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
     }
+
+
+//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        User user = // Get the current user from the session or database
+//                List<Ad> ads = adDao.getAdsForUser(user);
+//        request.setAttribute(“ads”, ads);
+//        RequestDispatcher dispatcher = request.getRequestDispatcher(“/profile.jsp”);
+//        dispatcher.forward(request, response);
+//    }
 }
