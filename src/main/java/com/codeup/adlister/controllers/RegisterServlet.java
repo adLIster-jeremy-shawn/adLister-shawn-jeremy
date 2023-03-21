@@ -29,12 +29,24 @@ public class RegisterServlet extends HttpServlet {
                 || email.isEmpty()
                 || password.isEmpty();
 
+
         if (inputHasErrors) {
             response.sendRedirect("/register");
             return;
         }
+
+
+        if (DaoFactory.getUsersDao().findByUsername(username) != null) {
+            request.setAttribute("errorMessage", "Username is already taken.");
+            try {
+                request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
+            } catch (ServletException e) {
+                throw new RuntimeException(e);
+            }
+            return;
+        }
+
         User user = new User(username, email, password);
         DaoFactory.getUsersDao().insert(user);
         response.sendRedirect("/login");
-    }
-}
+    }}

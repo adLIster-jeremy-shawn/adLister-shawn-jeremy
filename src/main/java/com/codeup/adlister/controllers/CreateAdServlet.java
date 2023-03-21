@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.ResultSet;
 
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
@@ -27,6 +28,15 @@ public class CreateAdServlet extends HttpServlet {
         User user = (User) request.getSession().getAttribute("user");
         if (user == null){
             response.sendRedirect("/login");
+            return;
+        }
+        if (DaoFactory.getAdsDao() != null) {
+            request.setAttribute("adderrorMessage", "enter add.");
+            try {
+                request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
+            } catch (ServletException e) {
+                throw new RuntimeException(e);
+            }
             return;
         }
 
