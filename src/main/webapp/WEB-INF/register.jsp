@@ -29,5 +29,6 @@
             <input type="submit" class="btn btn-primary btn-block w-100" value="Register">
         </form>
     </div>
+    <script src="/JS/script.js"></script>
 </body>
 </html>

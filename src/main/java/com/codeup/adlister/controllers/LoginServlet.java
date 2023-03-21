@@ -17,6 +17,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import static com.codeup.adlister.test.PasswordTest.is_Valid_Password;
+
 @WebServlet(name = "controllers.LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,14 +35,14 @@ public class LoginServlet extends HttpServlet {
         if (firstURL == null) {
             firstURL = "/profile";
         }
-        System.out.println(firstURL);
+//        System.out.println(firstURL);
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User user = DaoFactory.getUsersDao().findByUsername(username);
 
         if (user == null) {
-            response.sendRedirect("/login");
+//            response.sendRedirect("/login");
             return;
         }
 
@@ -49,11 +51,6 @@ public class LoginServlet extends HttpServlet {
         if (validAttempt) {
             request.getSession().setAttribute("user", user);
             response.sendRedirect(firstURL);
-            //pick up work here
-//            response.sendRedirect("/profile");
-        } else {
-            response.sendRedirect(firstURL);
         }
     }
-    //comment
 }

@@ -26,6 +26,9 @@ public class CreateAdServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        String firstURL = (String) request.getSession().getAttribute("firstURL");
+
         User user = (User) request.getSession().getAttribute("user");
         if (user == null){
             response.sendRedirect("/login");
@@ -37,7 +40,16 @@ public class CreateAdServlet extends HttpServlet {
             request.getParameter("title"),
             request.getParameter("description")
         );
-        DaoFactory.getAdsDao().insert(ad);
-        response.sendRedirect("/profile");
+
+
+        if (ad.getTitle() == "" || ad.getDescription() == "") {
+            response.sendRedirect(firstURL);
+
+//            response.sendRedirect("/ads/create");
+//            return;
+        } else {
+            DaoFactory.getAdsDao().insert(ad);
+            response.sendRedirect("/profile");
         }
+    }
 }
