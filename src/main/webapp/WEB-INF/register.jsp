@@ -30,7 +30,7 @@
             <div class="form-group pb-3">
                 <label for="password">Password
                     (Min. 8 chars, 1 special char, and 1 #)</label>
-                <input id="password" name="password" class="form-control" type="password" placeholder="Password" required>
+                <input id="password" name="password" class="form-control" type="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
             </div>
             <input type="submit" class="btn btn-primary btn-block w-100" value="Register">
         </form>
