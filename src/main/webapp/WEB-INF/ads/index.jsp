@@ -18,8 +18,9 @@
         const ads = document.querySelectorAll('.col');
         ads.forEach((ad) => {
             const title = ad.querySelector('h2').textContent.toLowerCase();
-            const description = ad.querySelector('p').textContent.toLowerCase();
-            if (title.includes(filterValue) || description.includes(filterValue)) {
+            const price = ad.querySelector('p').textContent.toLowerCase();
+            const more = ad.querySelector('a').textContent.toLowerCase();
+            if (title.includes(filterValue) || price.includes(filterValue) || more.includes(filterValue)) {
                 ad.style.display = '';
             } else {
                 ad.style.display = 'none';

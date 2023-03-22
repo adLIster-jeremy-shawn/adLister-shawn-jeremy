@@ -61,7 +61,7 @@ public class CreateAdServlet extends HttpServlet {
             request.getParameter("location")
         );
 
-        if (ad.getTitle() == "" || ad.getDescription() == "" || ad.getLocation() == "") {
+        if (ad.getTitle() == "" || ad.getDescription() == "" || ad.getLocation() == "" ) {
             response.sendRedirect(firstURL);
         } else {
             DaoFactory.getAdsDao().insert(ad);
