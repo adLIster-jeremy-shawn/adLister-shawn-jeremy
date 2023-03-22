@@ -24,7 +24,7 @@
                 <label for="location">Location</label>
                 <input id="location" name="location" class="form-control" type="text" required>
             </div>
-            <input type="submit" class="btn btn-block btn-primary">
+            <input type="submit" class="btn btn-block btn-primary" value="Create Ad">
         </form>
     </div>
 </body>

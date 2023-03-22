@@ -46,7 +46,6 @@ public class CreateAdServlet extends HttpServlet {
 //            }
 //            return;
 //        }
-        request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
 
         String price = request.getParameter("price");
 //        DecimalFormat decim = new DecimalFormat("0.00");
@@ -65,10 +64,7 @@ public class CreateAdServlet extends HttpServlet {
             response.sendRedirect(firstURL);
         } else {
             DaoFactory.getAdsDao().insert(ad);
-            System.out.println("1");
-
             response.sendRedirect("/profile");
-            System.out.println("2");
         }
     }
 
