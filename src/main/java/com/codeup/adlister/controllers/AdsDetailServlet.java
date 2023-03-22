@@ -19,7 +19,8 @@ public class AdsDetailServlet extends HttpServlet {
             response.sendRedirect("/login");
             return;
         }
-        request.setAttribute("ads", DaoFactory.getAdsDao().all());
+        request.setAttribute("ad", DaoFactory.getAdsDao().findById(Long.parseLong(detailAdId)));
         request.getRequestDispatcher("/WEB-INF/ads/adDetail.jsp").forward(request, response);
+        System.out.println("Ad ID:" + detailAdId);
     }
 }
