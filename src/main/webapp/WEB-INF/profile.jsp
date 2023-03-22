@@ -41,14 +41,12 @@
             <c:forEach var="ad" items="${ads}">
                 <c:choose>
                     <c:when test="${sessionScope.user.id eq ad.adUser_id}">
-<<<<<<< HEAD
-                        <div class="userads">
-                            <h2 class="title">${ad.title}</h2>
-                            <p class="description">${ad.description}</p>
-                            <p class="price">${ad.price}</p>
-                            <p>${ad.location}</p>
-                            <a href="/ads/unique">...more</a>
-=======
+<%--                        <div class="userads">--%>
+<%--                            <h2 class="title">${ad.title}</h2>--%>
+<%--                            <p class="description">${ad.description}</p>--%>
+<%--                            <p class="price">${ad.price}</p>--%>
+<%--                            <p>${ad.location}</p>--%>
+<%--                            <a href="/ads/unique">...more</a>--%>
                         <div class="">
                             <h2 class="">${ad.title}</h2>
                             <p>${ad.description}</p>
@@ -58,22 +56,18 @@
                     </c:when>
                 </c:choose>
             </c:forEach>
->>>>>>> 7137cc7bb916cb28b2a720c5ba7249dea4ad6763
         </div>
     </div>
-        </c:when>
-        </c:choose>
-        </c:forEach>
 
 
-<c:forEach var="ad" items="${ads}">
-        <c:when test="${}">
-            <jsp:include page="/WEB-INF/partials/messages.jsp" />
-        </c:when>
-        <c:otherwise>
-        <p>no errors here boss</p>
-        </c:otherwise>
-        </c:forEach>
+<%--<c:forEach var="ad" items="${ads}">--%>
+<%--        <c:when test="${}">--%>
+<%--            <jsp:include page="/WEB-INF/partials/messages.jsp" />--%>
+<%--        </c:when>--%>
+<%--        <c:otherwise>--%>
+<%--        <p>no errors here boss</p>--%>
+<%--        </c:otherwise>--%>
+<%--        </c:forEach>--%>
 </body>
     <script>
         function myFunction(e) {
