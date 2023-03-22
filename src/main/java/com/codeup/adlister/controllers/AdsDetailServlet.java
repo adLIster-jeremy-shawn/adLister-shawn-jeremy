@@ -12,8 +12,7 @@ import java.io.IOException;
 @WebServlet(name = "controllers.AdsDetailServlet", urlPatterns = "/ads/unique")
 public class AdsDetailServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        String detailAd = request.getParameter("/ads/unique?id=${ad.id}");
+        String detailAdId = request.getParameter("id");
 
 //        if (request.getParameter("/ads/unique?id=${ad.id}") == null) {
         if (request.getSession().getAttribute("user") == null) {
