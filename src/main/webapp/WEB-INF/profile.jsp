@@ -41,6 +41,7 @@
                         <div class="">
                             <h2 class="">${ad.title}</h2>
                             <p>${ad.description}</p>
+<%--                            <a id="${ad.id}" href="${pageContext.request.contextPath}/ads/unique?id=${ad.id}">...more</a>--%>
                             <a id="${ad.id}" href="${pageContext.request.contextPath}/ads/unique">...more</a>
                         </div>
                     </c:when>
@@ -50,18 +51,17 @@
     </div>
 </body>
     <script>
-        document.addEventListener('click', (e) =>
-            {
-                let elementId = e.target.id;
-                if (elementId !== '') {
-                    console.log(elementId);
-                    alert(elementId);
-                }
-                else {
-                    console.log("An element without an id was clicked.");
-                }
+        function myFunction(e) {
+            let elementId = e.target.id;
+            if (elementId !== '') {
+                // console.log(elementId);
+                // alert(elementId);
             }
-        );
-
+            else {
+                console.log("An element without an id was clicked.");
+            }
+        }
+        // let aTarget = document.getElementsByTagName("UL")
+        document.addEventListener('click', myFunction);
     </script>
 </html>

@@ -30,16 +30,12 @@
 <div class="container-fluid px-3">
     <h1 class="mb-3">Here is your unique ad</h1>
     <div class="d-flex justify-content-between">
-        <c:choose>
-            <c:when test="${sessionScope.ad.id eq adId}">
-                <div class="">
-                    <h2>${ad.title}</h2>
-                    <p>${ad.price}</p>
-                    <p>${ad.description}</p>
-                    <p>${ad.location}</p>
-                </div>
-            </c:when>
-        </c:choose>
+        <div class="">
+            <h2>${ad.title}</h2>
+            <p>${ad.price}</p>
+            <p>${ad.description}</p>
+            <p>${ad.location}</p>
+        </div>
     </div>
 </div>
 </body>
@@ -47,7 +43,7 @@
     <%--let adId = document.getElementById(${ad.id});--%>
     <%--console.log(adId);--%>
     <%--let test = 1 + 2;--%>
-    console.log(adId);
+    // console.log(adId);
 
 </script>
 </html>
