@@ -53,5 +53,14 @@
         </c:choose>
         </c:forEach>
 
+
+<c:forEach var="ad" items="${ads}">
+        <c:when test="${}">
+            <jsp:include page="/WEB-INF/partials/messages.jsp" />
+        </c:when>
+        <c:otherwise>
+        <p>no errors here boss</p>
+        </c:otherwise>
+        </c:forEach>
 </body>
 </html>
