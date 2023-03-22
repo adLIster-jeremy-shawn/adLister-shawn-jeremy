@@ -30,6 +30,7 @@ public class LoginServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
         String firstURL = (String) request.getSession().getAttribute("firstURL");
         if (firstURL == null) {
             firstURL = "/profile";

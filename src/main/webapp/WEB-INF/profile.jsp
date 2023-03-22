@@ -41,12 +41,24 @@
             <c:forEach var="ad" items="${ads}">
                 <c:choose>
                     <c:when test="${sessionScope.user.id eq ad.adUser_id}">
+<<<<<<< HEAD
                         <div class="userads">
                             <h2 class="title">${ad.title}</h2>
                             <p class="description">${ad.description}</p>
                             <p class="price">${ad.price}</p>
                             <p>${ad.location}</p>
                             <a href="/ads/unique">...more</a>
+=======
+                        <div class="">
+                            <h2 class="">${ad.title}</h2>
+                            <p>${ad.description}</p>
+<%--                            <a id="${ad.id}" href="${pageContext.request.contextPath}/ads/unique?id=${ad.id}">...more</a>--%>
+                            <a id="${ad.id}" href="${pageContext.request.contextPath}/ads/unique">...more</a>
+                        </div>
+                    </c:when>
+                </c:choose>
+            </c:forEach>
+>>>>>>> 7137cc7bb916cb28b2a720c5ba7249dea4ad6763
         </div>
     </div>
         </c:when>
@@ -63,4 +75,18 @@
         </c:otherwise>
         </c:forEach>
 </body>
+    <script>
+        function myFunction(e) {
+            let elementId = e.target.id;
+            if (elementId !== '') {
+                // console.log(elementId);
+                // alert(elementId);
+            }
+            else {
+                console.log("An element without an id was clicked.");
+            }
+        }
+        // let aTarget = document.getElementsByTagName("UL")
+        document.addEventListener('click', myFunction);
+    </script>
 </html>
