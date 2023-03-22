@@ -29,7 +29,7 @@
             </div>
             <div class="form-group pb-3">
                 <label for="password">Password</label>
-                <input id="password" name="password" class="form-control" type="password" required>
+                <input id="password" name="password" class="form-control" type="password" placeholder="Min. 8 characters/ 1 special character and 1 number." required>
             </div>
             <input type="submit" class="btn btn-primary btn-block w-100" value="Register">
         </form>

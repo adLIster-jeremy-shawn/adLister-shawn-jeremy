@@ -9,29 +9,39 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-
-    <div class="container">
+    <div class="container-fluid px-3">
+    <input class="mb-3" type="text" id="search-bar" placeholder="Search ads...">
+    <script>
+        const searchBar = document.getElementById('search-bar');
+        searchBar.addEventListener('input', (event) => {
+            const filterValue = event.target.value.toLowerCase();
+            const ads = document.querySelectorAll('.col');
+            ads.forEach((ad) => {
+                const title = ad.querySelector('h2').textContent.toLowerCase();
+                const description = ad.querySelector('p').textContent.toLowerCase();
+                if (title.includes(filterValue) || description.includes(filterValue)) {
+                    ad.style.display = '';
+                } else {
+                    ad.style.display = 'none';
+                }
+            });
+        });
+    </script>
+    </div>
+    <div class="container-fluid px-3">
         <h1>Welcome, <c:out value="${sessionScope.user.username}"/>!</h1>
     </div>
 
-    <div class="container w-90">
-<%--    <c:choose>--%>
-<%--        <c:when test="${sessionScope.user.id eq ad.adUser_id}">--%>
-<%--            <h2 class="mb-5">Here are your ads!</h2>--%>
-<%--        </c:when>--%>
-<%--        <c:otherwise>--%>
-<%--            <h2>You do not have any ads to show.</h2>--%>
-<%--        </c:otherwise>--%>
-<%--    </c:choose>--%>
-
-    <h2 class="mb-5">Here are your ads:</h2>
-    <div class="row row-cols-4">
+    <div class="container-fluid px-3">
+        <h1 class="mb-3">Here are your ads:</h1>
+        <div class="d-flex justify-content-between">
             <c:forEach var="ad" items="${ads}">
                 <c:choose>
                     <c:when test="${sessionScope.user.id eq ad.adUser_id}">
-                        <div class="col mb-3">
-                            <h2 class="mb-1">${ad.title}</h2>
+                        <div class="">
+                            <h2 class="">${ad.title}</h2>
                             <p>${ad.description}</p>
+                            <a href="/ads/unique">...more</a>
                         </div>
                     </c:when>
                 </c:choose>

@@ -9,7 +9,6 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container-fluid px-3">
-
 <input class="mb-3" type="text" id="search-bar" placeholder="Search ads...">
 <script>
     const searchBar = document.getElementById('search-bar');
@@ -28,20 +27,24 @@
     });
 </script>
 </div>
-
 <div class="container-fluid px-3">
-    <h1 class="mb-3">Here Are all the ads!</h1>
+    <h1 class="mb-3">Here is your unique ad</h1>
     <div class="d-flex justify-content-between">
-        <c:forEach var="ad" items="${ads}">
-            <div class="">
-                <h2 class="">${ad.title}</h2>
-                <p>$${ad.price}</p>
-                <a href="/ads/unique">...more</a>
-                    <%--                <p>${ad.description}</p>--%>
-            </div>
-        </c:forEach>
+<%--        <c:forEach var="ad" items="${ads}">--%>
+<%--            <div class="">--%>
+<%--                <h2 class="">${ad.title}</h2>--%>
+<%--                <p>$${ad.price}</p>--%>
+<%--                <a href=""></a>--%>
+<%--                    &lt;%&ndash;                <p>${ad.description}</p>&ndash;%&gt;--%>
+<%--            </div>--%>
+<%--        </c:forEach>--%>
+        <div class="">
+            <h2 class="">Unique ad title</h2>
+            <p>$100.00</p>
+            <p>Unique ad description</p>
+            <p>Unique ad location</p>
+        </div>
     </div>
 </div>
-
 </body>
 </html>
