@@ -12,15 +12,15 @@ import java.io.IOException;
 @WebServlet(name = "controllers.AdsDetailServlet", urlPatterns = "/ads/unique")
 public class AdsDetailServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        String detailAd = request.getParameter("/ads/unique?id=${ad.id}");
+        String detailAdId = request.getParameter("id");
 
 //        if (request.getParameter("/ads/unique?id=${ad.id}") == null) {
         if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
             return;
         }
-        request.setAttribute("ads", DaoFactory.getAdsDao().all());
+        request.setAttribute("ad", DaoFactory.getAdsDao().findById(Long.parseLong(detailAdId)));
         request.getRequestDispatcher("/WEB-INF/ads/adDetail.jsp").forward(request, response);
+        System.out.println("Ad ID:" + detailAdId);
     }
 }

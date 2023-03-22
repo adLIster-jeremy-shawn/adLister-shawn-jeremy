@@ -52,8 +52,8 @@
                         <div class="">
                             <h2 class="">${ad.title}</h2>
                             <p>${ad.description}</p>
-<%--                            <a id="${ad.id}" href="${pageContext.request.contextPath}/ads/unique?id=${ad.id}">...more</a>--%>
-                            <a id="${ad.id}" href="${pageContext.request.contextPath}/ads/unique">...more</a>
+                            <a id="${ad.id}" href="${pageContext.request.contextPath}/ads/unique?id=${ad.id}">...more</a>
+<%--                            <a id="${ad.id}" href="${pageContext.request.contextPath}/ads/unique">...more</a>--%>
                         </div>
                     </c:when>
                 </c:choose>
