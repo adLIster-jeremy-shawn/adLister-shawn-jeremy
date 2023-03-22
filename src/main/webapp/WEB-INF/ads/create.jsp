@@ -11,13 +11,18 @@
         <h1>Create a new Ad</h1>
         <form action="/ads/create" method="post">
             <div class="form-group pb-3">
+
                 <label for="title">Title</label>
                 <input id="title" name="title" class="form-control" type="text" required>
 
-            </div>
-            <div class="form-group pb-3" >
+                <label for="price">Price</label>
+                <input id="price" name="price" class="form-control" type="number" min="0" max="99999" required>
+
                 <label for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text" required></textarea>
+
+                <label for="location">Location</label>
+                <input id="location" name="location" class="form-control" type="text" required>
             </div>
             <input type="submit" class="btn btn-block btn-primary">
         </form>

@@ -34,28 +34,36 @@ public class CreateAdServlet extends HttpServlet {
             response.sendRedirect("/login");
             return;
         }
-        if (DaoFactory.getAdsDao() != null) {
-            request.setAttribute("adderrorMessage", "enter valid add.");
-            try {
-                request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
-            } catch (ServletException e) {
-                throw new RuntimeException(e);
-            }
-            return;
-        }
+//        if (DaoFactory.getAdsDao() != null) {
+//            request.setAttribute("adderrorMessage", "enter valid ad.");
+//            try {
+//                request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
+//            } catch (ServletException e) {
+//                throw new RuntimeException(e);
+//            }
+//            return;
+//        }
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
+
+        String price = request.getParameter("price");
+        double doublePrice = (price == null) ? 0: Double.parseDouble(price);
 
         Ad ad = new Ad(
             user.getId(),
             request.getParameter("title"),
-            request.getParameter("description")
+            doublePrice,
+            request.getParameter("description"),
+            request.getParameter("location")
         );
 
-        if (ad.getTitle() == "" || ad.getDescription() == "") {
+        if (ad.getTitle() == "" || ad.getDescription() == "" || ad.getLocation() == "") {
             response.sendRedirect(firstURL);
         } else {
             DaoFactory.getAdsDao().insert(ad);
+            System.out.println("1");
+
             response.sendRedirect("/profile");
+            System.out.println("2");
         }
     }
 }
