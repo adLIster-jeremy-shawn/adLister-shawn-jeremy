@@ -3,7 +3,7 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Viewing All The Ads" />
+        <jsp:param name="title" value="Viewing Your Ads" />
     </jsp:include>
 </head>
 <body>
@@ -30,21 +30,24 @@
 <div class="container-fluid px-3">
     <h1 class="mb-3">Here is your unique ad</h1>
     <div class="d-flex justify-content-between">
-<%--        <c:forEach var="ad" items="${ads}">--%>
-<%--            <div class="">--%>
-<%--                <h2 class="">${ad.title}</h2>--%>
-<%--                <p>$${ad.price}</p>--%>
-<%--                <a href=""></a>--%>
-<%--                    &lt;%&ndash;                <p>${ad.description}</p>&ndash;%&gt;--%>
-<%--            </div>--%>
-<%--        </c:forEach>--%>
-        <div class="">
-            <h2 class="">Unique ad title</h2>
-            <p>$100.00</p>
-            <p>Unique ad description</p>
-            <p>Unique ad location</p>
-        </div>
+        <c:choose>
+            <c:when test="${sessionScope.ad.id eq adId}">
+                <div class="">
+                    <h2>${ad.title}</h2>
+                    <p>${ad.price}</p>
+                    <p>${ad.description}</p>
+                    <p>${ad.location}</p>
+                </div>
+            </c:when>
+        </c:choose>
     </div>
 </div>
 </body>
+<script>
+    <%--let adId = document.getElementById(${ad.id});--%>
+    <%--console.log(adId);--%>
+    <%--let test = 1 + 2;--%>
+    console.log(adId);
+
+</script>
 </html>
