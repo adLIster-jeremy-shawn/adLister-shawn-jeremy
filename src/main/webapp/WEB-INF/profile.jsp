@@ -47,7 +47,7 @@
 <%--                            <p class="price">${ad.price}</p>--%>
 <%--                            <p>${ad.location}</p>--%>
 <%--                            <a href="/ads/unique">...more</a>--%>
-                        <div class="">
+                        <div class="userads">
                             <h2 class="">${ad.title}</h2>
                             <p>${ad.description}</p>
                             <a id="${ad.id}" href="${pageContext.request.contextPath}/ads/unique?id=${ad.id}">...more</a>

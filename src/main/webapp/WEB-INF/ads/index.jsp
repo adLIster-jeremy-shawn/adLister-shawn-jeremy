@@ -33,7 +33,7 @@
     <h1 class="mb-3">Here Are all the ads!</h1>
     <div class="d-flex justify-content-between">
         <c:forEach var="ad" items="${ads}">
-            <div class="">
+            <div class="listads">
                 <h2 class="">${ad.title}</h2>
                 <p>${ad.description}</p>
                 <a id="${ad.id}" href="${pageContext.request.contextPath}/ads/unique?id=${ad.id}">...more</a>
