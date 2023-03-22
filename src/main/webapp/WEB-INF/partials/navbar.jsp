@@ -2,8 +2,9 @@
 <c:set var = "user" scope = "session" value = "${sessionScope.user}"/>
         <c:choose>
             <c:when test="${sessionScope.user != null}">
+                <div class="container-fluid px-3">
+
                 <nav class="navbar navbar-default">
-                   <div class="container-fluid">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="/login">Adlister</a>
                       </div>
@@ -13,8 +14,8 @@
                         <li class="me-3"><a href="/profile">Profile</a></li>
                         <li><a href="/logout">Logout</a></li>
                       </ul>
-                   </div>
                 </nav>
+                </div>
             </c:when>
 <c:otherwise>
             <nav class="navbar navbar-default">

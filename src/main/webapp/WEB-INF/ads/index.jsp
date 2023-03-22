@@ -8,7 +8,9 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-<input class="mx-3" type="text" id="search-bar" placeholder="Search ads...">
+<div class="container-fluid px-3">
+
+<input class="mb-3" type="text" id="search-bar" placeholder="Search ads...">
 <script>
     const searchBar = document.getElementById('search-bar');
     searchBar.addEventListener('input', (event) => {
@@ -25,7 +27,9 @@
         });
     });
 </script>
-<div class="container">
+</div>
+
+<div class="container-fluid px-3">
     <h1 class="mb-3">Here Are all the ads!</h1>
     <div class="d-flex justify-content-between">
         <c:forEach var="ad" items="${ads}">

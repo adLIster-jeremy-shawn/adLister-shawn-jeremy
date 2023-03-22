@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.ResultSet;
+import java.text.DecimalFormat;
+
+import static java.lang.Math.round;
 
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
@@ -46,6 +49,8 @@ public class CreateAdServlet extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
 
         String price = request.getParameter("price");
+//        DecimalFormat decim = new DecimalFormat("0.00");
+//        double doublePrice = (price == null) ? 0: Double.parseDouble(decim.format(price));
         double doublePrice = (price == null) ? 0: Double.parseDouble(price);
 
         Ad ad = new Ad(
@@ -66,4 +71,5 @@ public class CreateAdServlet extends HttpServlet {
             System.out.println("2");
         }
     }
+
 }
