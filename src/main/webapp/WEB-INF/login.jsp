@@ -22,11 +22,11 @@
         <form action="/login" method="POST">
             <div class="form-group pb-3">
                 <label for="username">Username</label>
-                <input id="username" name="username" class="form-control" type="text" required value="${param.username}">
+                <input id="username" name="username" class="form-control" type="text" required value="${param.username}" placeholder="Username">
             </div>
             <div class="form-group pb-3">
                 <label for="password">Password</label>
-                <input id="password" name="password" class="form-control" type="password" required>
+                <input id="password" name="password" class="form-control" type="password" required placeholder="Password">
             </div>
             <input type="submit" class="btn btn-primary btn-block w-100 mb-3" value="Log In">
 <%--            <input type="submit" class="btn btn-primary btn-block w-100 mb-3" href="/WEB-INF/register" value="Register"/>--%>
