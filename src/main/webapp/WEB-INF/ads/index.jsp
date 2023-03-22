@@ -31,9 +31,9 @@
 
 <div class="container-fluid px-3">
     <h1 class="mb-3">Here Are all the ads!</h1>
-    <div class="d-flex justify-content-between">
+    <div class="d-flex flex-wrap">
         <c:forEach var="ad" items="${ads}">
-            <div class="listads">
+            <div class="listads p-3">
                 <h2 class="">${ad.title}</h2>
                 <p>${ad.description}</p>
                 <a id="${ad.id}" href="${pageContext.request.contextPath}/ads/unique?id=${ad.id}">...more</a>

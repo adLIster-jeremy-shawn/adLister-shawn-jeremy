@@ -30,9 +30,9 @@
 <div class="container-fluid px-3">
     <h1 class="mb-3">Here is your unique ad</h1>
     <div class="d-flex justify-content-between">
-        <div class="">
+        <div class="p-3">
             <h2>${ad.title}</h2>
-            <p>${ad.price}</p>
+            <p>$ ${ad.price}</p>
             <p>${ad.description}</p>
             <p>${ad.location}</p>
         </div>

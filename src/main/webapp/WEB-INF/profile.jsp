@@ -37,7 +37,7 @@
 
     <div class="container-fluid px-3">
         <h1 class="mb-3">Here are your ads:</h1>
-        <div class="d-flex justify-content-between">
+        <div class="d-flex flex-wrap">
             <c:forEach var="ad" items="${ads}">
                 <c:choose>
                     <c:when test="${sessionScope.user.id eq ad.adUser_id}">
@@ -47,7 +47,7 @@
 <%--                            <p class="price">${ad.price}</p>--%>
 <%--                            <p>${ad.location}</p>--%>
 <%--                            <a href="/ads/unique">...more</a>--%>
-                        <div class="userads">
+                        <div class="userads p-3">
                             <h2 class="">${ad.title}</h2>
                             <p>${ad.description}</p>
                             <a id="${ad.id}" href="${pageContext.request.contextPath}/ads/unique?id=${ad.id}">...more</a>
