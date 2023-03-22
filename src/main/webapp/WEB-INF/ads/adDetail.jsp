@@ -27,17 +27,22 @@
 </script>
 <div class="container">
     <h1 class="mb-3">Here Are all the ads!</h1>
-    <div class="d-flex justify-content-between">
-        <c:forEach var="ad" items="${ads}">
-            <div class="">
-                <h2 class="">${ad.title}</h2>
-                <p>$${ad.price}</p>
-                <a href="/ads/unique">...more</a>
-                    <%--                <p>${ad.description}</p>--%>
-            </div>
-        </c:forEach>
+    <div class="d-flex justify-content-center align-items-center">
+<%--        <c:forEach var="ad" items="${ads}">--%>
+<%--            <div class="">--%>
+<%--                <h2 class="">${ad.title}</h2>--%>
+<%--                <p>$${ad.price}</p>--%>
+<%--                <a href=""></a>--%>
+<%--                    &lt;%&ndash;                <p>${ad.description}</p>&ndash;%&gt;--%>
+<%--            </div>--%>
+<%--        </c:forEach>--%>
+        <div class="">
+            <h2 class="">Unique ad title</h2>
+            <p>$100.00</p>
+            <p>Unique ad description</p>
+            <p>Unique ad location</p>
+        </div>
     </div>
 </div>
-
 </body>
 </html>

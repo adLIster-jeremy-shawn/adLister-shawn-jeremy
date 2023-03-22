@@ -32,6 +32,7 @@
                         <div class="col mb-3">
                             <h2 class="mb-1">${ad.title}</h2>
                             <p>${ad.description}</p>
+                            <a href="/ads/unique">...more</a>
                         </div>
                     </c:when>
                 </c:choose>
