@@ -15,12 +15,11 @@
     const searchBar = document.getElementById('search-bar');
     searchBar.addEventListener('input', (event) => {
         const filterValue = event.target.value.toLowerCase();
-        const ads = document.querySelectorAll('.col');
+        const ads = document.querySelectorAll('.listads');
         ads.forEach((ad) => {
             const title = ad.querySelector('h2').textContent.toLowerCase();
             const price = ad.querySelector('p').textContent.toLowerCase();
-            const more = ad.querySelector('a').textContent.toLowerCase();
-            if (title.includes(filterValue) || price.includes(filterValue) || more.includes(filterValue)) {
+            if (title.includes(filterValue) || price.includes(filterValue)) {
                 ad.style.display = '';
             } else {
                 ad.style.display = 'none';
@@ -34,7 +33,7 @@
     <h1 class="mb-3">Here Are all the ads!</h1>
     <div class="d-flex justify-content-between">
         <c:forEach var="ad" items="${ads}">
-            <div class="">
+            <div class="listads">
                 <h2 class="">${ad.title}</h2>
                 <p>$${ad.price}</p>
                 <a href="/ads/unique">...more</a>

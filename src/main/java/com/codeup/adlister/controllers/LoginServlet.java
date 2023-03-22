@@ -39,6 +39,12 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         User user = DaoFactory.getUsersDao().findByUsername(username);
 
+        boolean inputHasErrors = username.isEmpty() || password.isEmpty();
+
+        if (inputHasErrors) {
+            response.sendRedirect("/login");
+            return;
+        }
         if (user == null) {
             response.sendRedirect("/login");
             return;
@@ -50,7 +56,12 @@ public class LoginServlet extends HttpServlet {
             request.getSession().setAttribute("user", user);
             response.sendRedirect(firstURL);
         } else {
-            response.sendRedirect(firstURL);
+            // Show error message when password is incorrect
+            request.setAttribute("errorMessage2", "Invalid password.");
+            try {
+                request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+            } catch (ServletException e) {
+                throw new RuntimeException(e);
+            }
         }
-    }
-}
+    }}

@@ -11,10 +11,18 @@
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container w-25">
         <h1>Log In</h1>
+        <c:choose>
+            <c:when test="${not empty errorMessage2}">
+                <div class="alert alert-danger">${errorMessage2}</div>
+            </c:when>
+            <c:otherwise>
+                <div class="alert alert-Primary">Log in</div>
+            </c:otherwise>
+        </c:choose>
         <form action="/login" method="POST">
             <div class="form-group pb-3">
                 <label for="username">Username</label>
-                <input id="username" name="username" class="form-control" type="text" required>
+                <input id="username" name="username" class="form-control" type="text" required value="${param.username}">
             </div>
             <div class="form-group pb-3">
                 <label for="password">Password</label>
