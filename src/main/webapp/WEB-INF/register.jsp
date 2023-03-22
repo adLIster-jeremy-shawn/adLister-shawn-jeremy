@@ -21,11 +21,11 @@
         <form action="/register" method="POST">
             <div class="form-group pb-3">
                 <label for="username">Username</label>
-                <input id="username" name="username" class="form-control" type="text" required>
+                <input id="username" name="username" class="form-control" type="text" required value="${param.username}">
             </div>
             <div class="form-group pb-3">
                 <label for="email">E-mail</label>
-                <input id="email" name="email" class="form-control" type="email" required>
+                <input id="email" name="email" class="form-control" type="email" required value="${param.email}">
             </div>
             <div class="form-group pb-3">
                 <label for="password">Password</label>

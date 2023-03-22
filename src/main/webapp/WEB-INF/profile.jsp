@@ -43,6 +43,8 @@
                         <div class="">
                             <h2 class="">${ad.title}</h2>
                             <p>${ad.description}</p>
+                            <p>${ad.price}</p>
+                            <p>${ad.location}</p>
                             <a href="/ads/unique">...more</a>
                             <div>
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -53,7 +55,25 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            ...
+                                            <form>
+                                                <div class="mb-3">
+                                                    <label for="title" class="form-label">title</label>
+                                                    <input type="text" class="form-control" id="title" aria-describedby="emailHelp" required value="${ad.title}">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="Price" class="form-label">Price</label>
+                                                    <input type="text" class="form-control" id="Price" aria-describedby="emailHelp" required value="${ad.price}">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="Description" class="form-label">Description/label>
+                                                    <input type="text" class="form-control" id="Description" aria-describedby="emailHelp" required value="${ad.description}">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="Location" class="form-label">Location</label>
+                                                    <input type="text" class="form-control" id="Location" aria-describedby="emailHelp" required value="${ad.location}">
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                            </form>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
